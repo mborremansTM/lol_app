@@ -1,12 +1,13 @@
 import {StatusBar} from 'expo-status-bar';
 import {HomeScreen} from "./screens/HomeScreen";
-import {ChampionsScreen} from "./screens/ChampionsScreen";
+import {ChampionStackScreen} from "./screens/ChampionsScreen";
 import {GameScreen} from "./screens/GameScreen";
 import {SafeAreaProvider} from "react-native-safe-area-context/src/SafeAreaContext";
 import {NavigationContainer} from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {ChampionsProvider} from "./contexts/ChampionsContext";
+import {ChampionDetailsScreen} from "./screens/ChampionDetailsScreen";
 
 
 function ProvidedApp() {
@@ -21,7 +22,7 @@ function ProvidedApp() {
             >
                   <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarIcon: ({color}) =>
                         (<MaterialCommunityIcons name="home" color={color} size={30} />),}}/>
-                  <Tab.Screen name="Champions" component={ChampionsScreen} options={{ tabBarIcon: ({color}) =>
+                  <Tab.Screen name="Champions" component={ChampionStackScreen} options={{ tabBarIcon: ({color}) =>
                                                                                                   (<MaterialCommunityIcons name="format-list-bulleted" color={color} size={30} />),}}/>
                   <Tab.Screen name="Game" component={GameScreen} />
             </Tab.Navigator>

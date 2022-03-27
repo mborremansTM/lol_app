@@ -1,12 +1,20 @@
 import {FlatList, StyleSheet, Text, TouchableOpacity, View, SafeAreaView} from "react-native";
 import tw from "twrnc";
 import {useChampionsContext} from "../contexts/ChampionsContext";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 
 export function Champion({champion}) {
+const navigation = useNavigation();
     return (
         <View style={styles.item}>
-            <Text>{champion.found ? champion.name : "???"}</Text>
+            <Text>{champion.found ? champion.name : "???"}
+            </Text><TouchableOpacity style={styles.detailsButton} onPress={() =>navigation.navigate('Details', {champion})}>
+            <Text>knop</Text>
+            </TouchableOpacity>
 
         </View>
 
