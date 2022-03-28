@@ -9,7 +9,9 @@ const ChampionStack = createNativeStackNavigator();
 
 export function ChampionStackScreen() {
   return (
-    <ChampionStack.Navigator>
+    <ChampionStack.Navigator screenOptions={{
+                                 headerShown: false
+                               }}>
       <ChampionStack.Screen name="Champions" component={ChampionsScreen} />
       <ChampionStack.Screen name="Details" component={ChampionDetailsScreen} />
     </ChampionStack.Navigator>

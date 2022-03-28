@@ -13,6 +13,18 @@ const INITIAL_DATA = [
          id: "2",
          name: "Ashe",
          found: true,
+         imageUri: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ashe_0.jpg"
+    },
+    {
+         id: "3",
+         name: "Aatrox",
+         found: true,
+
+    },
+    {
+         id: "4",
+         name: "Warwick",
+         found: true,
     },
 
 ];
@@ -20,6 +32,8 @@ const INITIAL_DATA = [
 
 export function ChampionsProvider(props) {
     const [champions] = useState(INITIAL_DATA);
+
+
 
     const api = useMemo(() => ({
         champions
