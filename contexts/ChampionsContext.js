@@ -18,7 +18,7 @@ const INITIAL_DATA = [
     {
          id: "3",
          name: "Aatrox",
-         found: true,
+         found: false,
 
     },
     {
@@ -31,14 +31,22 @@ const INITIAL_DATA = [
 
 
 export function ChampionsProvider(props) {
-    const [champions] = useState(INITIAL_DATA);
+    const [champions, setChampions] = useState(INITIAL_DATA);
+
+    const foundToTrue = useCallback(
+            championToTrue => {
+                const trueChampion = {...championToTrue, found: true};
+                setChampions(champions.map(champion => championToTrue.id === champion.id ? trueChampion : champion))
+            },
+            [champions, setChampions]
+        );
 
 
 
     const api = useMemo(() => ({
-        champions
+        champions, foundToTrue
     }), [
-        champions
+        champions, foundToTrue
     ]);
     return <ChampionsContext.Provider value={api}>
         {props.children}
