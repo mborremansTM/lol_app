@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import {HomeScreen} from "./screens/HomeScreen";
+import {HomeStackScreen} from "./screens/HomeScreen";
 import {ChampionStackScreen} from "./screens/ChampionsScreen";
 import {GameScreen} from "./screens/GameScreen";
 import {SafeAreaProvider} from "react-native-safe-area-context/src/SafeAreaContext";
@@ -15,16 +15,12 @@ function ProvidedApp() {
     return (
         <>
             <Tab.Navigator
-            barStyle={{ backgroundColor: '#3A3E9D' }}
-            activeColor="#5E0404"
-            inactiveColor="white"
-
-            >
-                  <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarIcon: ({color}) =>
-                        (<MaterialCommunityIcons name="home" color={color} size={30} />),}}/>
-                  <Tab.Screen name="Champions" component={ChampionStackScreen} options={{ tabBarIcon: ({color}) =>
-                                                                                                  (<MaterialCommunityIcons name="format-list-bulleted" color={color} size={30} />),}}/>
-                  <Tab.Screen name="Game" component={GameScreen} />
+            barStyle={{ backgroundColor: 'rgb(6, 28, 37)' }}
+            activeColor="#cfa75b"
+            inactiveColor="white">
+                  <Tab.Screen name="Home" component={HomeStackScreen} options={{ tabBarIcon: ({color}) => (<MaterialCommunityIcons name="home" color={color} size={24} />),}}/>
+                  <Tab.Screen name="Game" component={GameScreen} options={{ tabBarIcon: ({color}) => (<MaterialCommunityIcons name="gamepad-variant-outline" color={color} size={24} />),}}/>
+                  <Tab.Screen name="Champions" component={ChampionStackScreen} options={{ tabBarIcon: ({color}) => (<MaterialCommunityIcons name="format-list-bulleted" color={color} size={24} />),}}/>
             </Tab.Navigator>
         </>
     );

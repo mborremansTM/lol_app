@@ -12,7 +12,7 @@ export function ChampionStackScreen() {
     <ChampionStack.Navigator screenOptions={{
                                  headerShown: false
                                }}>
-      <ChampionStack.Screen name="Champions" component={ChampionsScreen} />
+      <ChampionStack.Screen name="ChampionsHome" component={ChampionsScreen} />
       <ChampionStack.Screen name="Details" component={ChampionDetailsScreen} />
     </ChampionStack.Navigator>
   );
@@ -20,9 +20,16 @@ export function ChampionStackScreen() {
 
 function ChampionsScreen() {
     return (
-    <View>
+    <View style={styles.container}>
                 <ChampionsList/>
             </View>
     )
 }
+
+const styles = StyleSheet.create({
+  container: {
+  backgroundColor: 'rgb(6, 28, 37)',
+  height: "100%"
+  }
+});
 

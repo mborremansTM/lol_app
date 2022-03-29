@@ -11,22 +11,20 @@ export function Champion({champion}) {
 const navigation = useNavigation();
     if (champion.found){
     return (
-        <TouchableOpacity style={styles.detailsButton} disabled={champion.found ? false : true} onPress={() =>navigation.navigate('Details', {champion})}>
+        <TouchableOpacity style={styles.detailsButton} onPress={() =>navigation.navigate('Details', {champion})}>
             <View style={styles.item}>
                 <Image style={styles.logo} source={{uri: champion.imageUri}}/>
-                <Text>{champion.name}</Text>
+                <View style={styles.allText}>
+                    <Text style={styles.name}>{champion.name}</Text>
+                    <Text style={styles.nickName}>{champion.nickName}</Text>
+                </View>
+
             </View>
             </TouchableOpacity>
         );
     }
     else {
-    return (
-        <View style={styles.item}>
-                        <Text>Not found yet!</Text>
-                    </View>
-    )}
-
-
+    return null}
 }
 
 export function ChampionsList() {
@@ -36,8 +34,9 @@ export function ChampionsList() {
 
     return (
     <SafeAreaView style={styles.container}>
-        <View>
-            <Text>Found {championsFound.length} out of {champions.length}</Text>
+        <View style={styles.found} >
+            <Text style={styles.foundText}>CHAMPIONS DISCOVERED {championsFound.length}/{champions.length}</Text>
+
         </View>
         <FlatList
             data={champions}
@@ -51,18 +50,49 @@ export function ChampionsList() {
 
 const styles = StyleSheet.create({
   container: {
-  margin: 15,
+  marginHorizontal: 5,
+  marginVertical: 70,
+  },
+  allText: {
+    flexDirection: 'column',
+    flex: 1,
+    paddingHorizontal: 10,
+    marginVertical: 20,
+    color: "rgb(0, 102, 128)",
   },
   item: {
-    padding: 20,
-    marginVertical: 8,
-    borderWidth: 1.5,
-    borderRadius: 10,
-    borderColor: '#3A3E9D',
+    marginVertical: 5,
+    borderWidth: 3,
+    padding: 5,
+    borderColor: '#cfa75b',
+    flexDirection: 'row',
+    borderRadius: 5,
+    backgroundColor: '#0c384a',
   },
   logo: {
-                 width: 100,
-                 height: 100,
-                 borderRadius: 50,
-                },
+    width: 100,
+    height: 100,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: 'rgb(6, 28, 37)',
+  },
+  name: {
+  fontSize: 28,
+  fontWeight: '500',
+  color: "white",
+  fontWeight: "bold",
+  },
+  nickName: {
+  fontSize: 20,
+  color: "#cfa75b",
+  fontStyle: 'italic',
+  fontWeight: "bold",
+  },
+  found: {
+  alignItems: "center",},
+  foundText: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#cfa75b',
+  }
 });
