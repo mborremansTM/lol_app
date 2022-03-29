@@ -1,10 +1,10 @@
-import {StyleSheet, Text, View, Image, SafeAreaView} from "react-native";
-import tw from "twrnc";
+import {StyleSheet, Text, View, Image, SafeAreaView, ScrollView} from "react-native";
 
-export function ChampionDetailsScreen({route}) {
+export function ChampionDetailScreen({route}) {
     const {champion} = route.params;
     return (
         <SafeAreaView style={styles.container}>
+        <ScrollView>
         <View>
                 <Image style={styles.logo} source={{uri: champion.imageUri}}/>
                     <View style={styles.profile}>
@@ -18,6 +18,7 @@ export function ChampionDetailsScreen({route}) {
                 </View>
 
                 </View>
+                </ScrollView>
                 </SafeAreaView>
     );
 }
@@ -31,13 +32,13 @@ const styles = StyleSheet.create(
         height: '100%',
         backgroundColor: 'rgb(6, 28, 37)',
         },
-        profile: {marginHorizontal: 10, marginVertical: 10, },
+        profile: {marginHorizontal: 10, marginTop: 10, },
         logo: {
                 width: "100%",
                 height: "40%",
                 borderWidth: 2,
                 borderColor: '#cfa75b',
-                marginTop:60,
+                marginTop:40,
         },
         roleImage: {
         alignItems: 'center',
@@ -45,7 +46,8 @@ const styles = StyleSheet.create(
         width: 60
         },
         roleName: {color: "#cfa75b", fontWeight: 'bold', fontSize: 18},
-        role: {alignItems: 'center',},
+        role: {alignItems: 'center',
+        marginTop: 40,},
         name: {
         fontSize: 36,
         color: 'white',
@@ -58,7 +60,7 @@ const styles = StyleSheet.create(
         },
         info: {
         fontSize: 16,
-        marginVertical: 25,
+        marginTop: 25,
         color: 'white',
         fontWeight: 'bold',
         },

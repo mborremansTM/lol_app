@@ -1,13 +1,12 @@
-import {StyleSheet, Text, View, useState, TextInput, TouchableOpacity, Alert, useEffect, useMemo, Image} from 'react-native';
+import {StyleSheet, Text, View, useState, TextInput, TouchableOpacity, Alert, Image} from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
-import tw from "twrnc";
-import {useChampionsContext} from "../contexts/ChampionsContext";
-import {ChampionsContext} from "../contexts/ChampionsContext";
+import {useChampionContext} from "../contexts/ChampionContext";
+import {ChampionContext} from "../contexts/ChampionContext";
 import React from "react";
 
 
 export function GameScreen() {
-    const {champions, foundToTrue} = useChampionsContext();
+    const {champions, foundToTrue} = useChampionContext();
     const championsFound = champions.filter(championFilter => !championFilter.found);
     const [randomNumber, setRandomNumber] = React.useState(Math.floor(Math.random() * championsFound.length-1) + 1 );
     const [champion, setChampion] = React.useState(championsFound[Math.floor(Math.random() * championsFound.length-1) + 1 ]);

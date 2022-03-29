@@ -1,6 +1,5 @@
-import {StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, ImageBackground} from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
-import tw from "twrnc";
 import {useNavigation} from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {HowToPlayScreen} from "./HowToPlayScreen";

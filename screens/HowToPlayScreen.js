@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, SafeAreaView, ScrollView} from "react-native";
+import {StyleSheet, Text, View, SafeAreaView, ScrollView} from "react-native";
 
 
 export function HowToPlayScreen(){
@@ -9,10 +9,6 @@ export function HowToPlayScreen(){
                       <Text style={styles.text}>- Four images will be presented to you.</Text>
                       <Text style={styles.text}>- All champions will be collected inside you League of Legends book.</Text>
                       <Text style={styles.text}>- To finish the game, find all champions. Good luck...</Text>
-                      <Text style={styles.text}>- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                            aliquip ex ea commodo consequat.</Text>
                   </View>
     </ScrollView>
               </SafeAreaView>);

@@ -1,6 +1,5 @@
-import {FlatList, StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, useMemo} from "react-native";
-import tw from "twrnc";
-import {useChampionsContext} from "../contexts/ChampionsContext";
+import {FlatList, StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image} from "react-native";
+import {useChampionContext} from "../contexts/ChampionContext";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,9 +8,9 @@ import { useNavigation } from '@react-navigation/native';
 
 export function Champion({champion}) {
 const navigation = useNavigation();
-    if (champion.found){
+
     return (
-        <TouchableOpacity style={styles.detailsButton} onPress={() =>navigation.navigate('Details', {champion})}>
+        <TouchableOpacity style={styles.detailsButton} onPress={() =>navigation.navigate('Detail', {champion})}>
             <View style={styles.item}>
                 <Image style={styles.logo} source={{uri: champion.imageUri}}/>
                 <View style={styles.allText}>
@@ -22,14 +21,13 @@ const navigation = useNavigation();
             </View>
             </TouchableOpacity>
         );
-    }
-    else {
-    return null}
+
 }
 
-export function ChampionsList() {
-    const {champions} = useChampionsContext();
-    const championsFound = champions.filter(champion => champion.found)
+export function ChampionList() {
+    const {champions} = useChampionContext();
+    const championsFound = champions.filter(champion => champion.found).sort((a, b) => a.name.localeCompare(b.name));
+
 
 
     return (
@@ -39,7 +37,7 @@ export function ChampionsList() {
 
         </View>
         <FlatList
-            data={champions}
+            data={championsFound}
             keyExtractor={champion => champion.id}
             renderItem={({item}) => <Champion champion={item}/>}
 
@@ -51,7 +49,7 @@ export function ChampionsList() {
 const styles = StyleSheet.create({
   container: {
   marginHorizontal: 5,
-  marginVertical: 70,
+  marginTop: 70,
   },
   allText: {
     flexDirection: 'column',

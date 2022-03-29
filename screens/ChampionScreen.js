@@ -1,9 +1,8 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
-import tw from "twrnc";
-import {ChampionsList} from "../components/ChampionsList";
+import {ChampionList} from "../components/ChampionList";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {ChampionDetailsScreen} from "./ChampionDetailsScreen";
+import {ChampionDetailScreen} from "./ChampionDetailScreen";
 
 const ChampionStack = createNativeStackNavigator();
 
@@ -12,16 +11,16 @@ export function ChampionStackScreen() {
     <ChampionStack.Navigator screenOptions={{
                                  headerShown: false
                                }}>
-      <ChampionStack.Screen name="ChampionsHome" component={ChampionsScreen} />
-      <ChampionStack.Screen name="Details" component={ChampionDetailsScreen} />
+      <ChampionStack.Screen name="ChampionHome" component={ChampionScreen} />
+      <ChampionStack.Screen name="Detail" component={ChampionDetailScreen} />
     </ChampionStack.Navigator>
   );
 }
 
-function ChampionsScreen() {
+function ChampionScreen() {
     return (
     <View style={styles.container}>
-                <ChampionsList/>
+                <ChampionList/>
             </View>
     )
 }
